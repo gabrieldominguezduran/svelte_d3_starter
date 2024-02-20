@@ -1,11 +1,12 @@
 <script>
 	import { scaleLinear } from 'd3';
 	import Circle from './Circle.svelte';
+	import Canvas from './Canvas.svelte';
 
 	let data = [];
 
 	setInterval(() => {
-		data = Array.from({ length: 1000 }).map(() => {
+		data = Array.from({ length: 5000 }).map(() => {
 			return {
 				a: Math.random(),
 				b: Math.random(),
@@ -31,7 +32,7 @@
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 >
-	<svg
+	<Canvas
 		width={width}
 		height={height}
 	>
@@ -43,15 +44,12 @@
 				fill={fill}
 			/>
 		{/each}
-	</svg>
+	</Canvas>
 </main>
 
 <style>
 	main {
 		width: 100vw;
 		height: 100vh;
-	}
-	svg {
-		background-color: #f3fff0;
 	}
 </style>
