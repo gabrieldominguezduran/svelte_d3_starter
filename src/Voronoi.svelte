@@ -7,6 +7,7 @@
 			b: Math.random(),
 		};
 	});
+
 	let width, height;
 	let voronoi;
 
@@ -22,6 +23,7 @@
 	}
 
 	$: xScale = scaleLinear().domain([0, 1]).range([0, width]);
+
 	$: yScale = scaleLinear().domain([0, 1]).range([0, height]);
 
 	$: renderedData = data.map((d) => {
@@ -41,10 +43,12 @@
 	}
 </script>
 
-<main
+<div
+	class="main"
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 	on:mousemove={handleMouseMove}
+	role="presentation"
 >
 	<svg
 		width={width}
@@ -56,22 +60,22 @@
 					d={voronoi.renderCell(i)}
 					fill={i === 0 ? 'pink' : 'none'}
 					stroke="steelblue"
+					stroke-width="3"
 				/>
-
 				<circle
 					cx={d.x}
 					cy={d.y}
-					r="3"
+					r={i === 0 ? 7 : 3}
 					fill="purple"
 					stroke="none"
 				/>
 			{/each}
 		{/if}
 	</svg>
-</main>
+</div>
 
 <style>
-	main {
+	.main {
 		width: 100vw;
 		height: 100vh;
 		overflow: hidden;

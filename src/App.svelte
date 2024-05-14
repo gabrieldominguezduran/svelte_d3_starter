@@ -3,30 +3,31 @@
 	import Circle from './Circle.svelte';
 	import Canvas from './Canvas.svelte';
 	import Voronoi from './Voronoi.svelte';
+	import GeoJsonMap from './map/GeoJsonMap.svelte';
 
-	let data = [];
+	// let data = [];
 
-	setInterval(() => {
-		data = Array.from({ length: 5000 }).map(() => {
-			return {
-				a: Math.random(),
-				b: Math.random(),
-				r: Math.random(),
-				fill: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
-					Math.random() * 255
-				})`,
-			};
-		});
-	}, 2000);
+	// setInterval(() => {
+	// 	data = Array.from({ length: 5000 }).map(() => {
+	// 		return {
+	// 			a: Math.random(),
+	// 			b: Math.random(),
+	// 			r: Math.random(),
+	// 			fill: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
+	// 				Math.random() * 255
+	// 			})`,
+	// 		};
+	// 	});
+	// }, 2000);
 
 	let width = 1000;
 	let height = 500;
 
-	$: xScale = scaleLinear().domain([0, 1]).range([0, width]);
-	$: yScale = scaleLinear().domain([0, 1]).range([height, 0]);
-	$: rScale = scaleLinear()
-		.domain([0, 1])
-		.range([5, width / 100]);
+	// $: xScale = scaleLinear().domain([0, 1]).range([0, width]);
+	// $: yScale = scaleLinear().domain([0, 1]).range([height, 0]);
+	// $: rScale = scaleLinear()
+	// 	.domain([0, 1])
+	// 	.range([5, width / 100]);
 </script>
 
 <main
@@ -47,7 +48,8 @@
 		{/each}
 	</Canvas> -->
 
-	<Voronoi />
+	<!-- <Voronoi /> -->
+	<GeoJsonMap />
 </main>
 
 <style>
