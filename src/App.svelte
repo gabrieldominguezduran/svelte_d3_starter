@@ -2,6 +2,7 @@
 	import { scaleLinear } from 'd3';
 	import Circle from './Circle.svelte';
 	import Canvas from './Canvas.svelte';
+	import Voronoi from './Voronoi.svelte';
 
 	let data = [];
 
@@ -32,7 +33,7 @@
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 >
-	<Canvas
+	<!-- <Canvas
 		width={width}
 		height={height}
 	>
@@ -44,12 +45,15 @@
 				fill={fill}
 			/>
 		{/each}
-	</Canvas>
+	</Canvas> -->
+
+	<Voronoi />
 </main>
 
 <style>
 	main {
 		width: 100vw;
 		height: 100vh;
+		overflow: hidden;
 	}
 </style>
